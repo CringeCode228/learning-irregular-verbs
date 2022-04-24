@@ -27,4 +27,4 @@ while True:
     if flag:
         print("Yes")
     else:
-        print("No")
+        print(f"No, {', '.join(word[:3])}")
