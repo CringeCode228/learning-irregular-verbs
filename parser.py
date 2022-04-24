@@ -23,7 +23,7 @@ with sqlite3.connect("database.db") as db:
                 past_participle = soup[index + 54].find_all("b")
                 if len(past_participle) and len(past_simple):
                     cursor.execute(f"INSERT INTO verbs (infinitive, past_simple, past_participle, translation) VALUES "
-                                   f"('{infinitive.text}', '{past_simple[0].text}', '{past_participle[0].text}', "
-                                   f"'{translations[i * 2 + 1].text}');")
+                                   f"('{infinitive.text.split()[0]}', '{past_simple[0].text.split()[0]}', "
+                                   f"'{past_participle[0].text.split()[0]}', '{translations[i * 2 + 1].text}');")
                     i += 1
     db.commit()

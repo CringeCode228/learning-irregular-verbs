@@ -14,6 +14,6 @@ with sqlite3.connect("database.db") as db:
 
     for tag_id in range(0, len(soup), 4):
         cursor.execute(f"INSERT INTO verbs (infinitive, past_simple, past_participle, translation) VALUES "
-                       f"('{soup[tag_id].text}', '{soup[tag_id + 1].text}', '{soup[tag_id + 2].text}', "
-                       f"'{soup[tag_id + 3].text}');")
+                       f"('{soup[tag_id].text.split()[0]}', '{soup[tag_id + 1].text.split()[0]}', "
+                       f"'{soup[tag_id + 2].text.split()[0]}', '{soup[tag_id + 3].text}');")
     db.commit()
